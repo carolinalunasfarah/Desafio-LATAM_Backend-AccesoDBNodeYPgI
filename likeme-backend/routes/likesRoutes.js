@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllPosts } from "../src/controllers/likesController";
+import { createPosts, getAllPosts } from "../src/controllers/likesController";
 
 const router = Router();
 
@@ -7,7 +7,7 @@ const router = Router();
 router.get("/posts", getAllPosts);
 
 // POST A NEW POST
-router.post("/posts");
+router.post("/posts", createPosts);
 
 // NOT FOUND
 router.all("*");
