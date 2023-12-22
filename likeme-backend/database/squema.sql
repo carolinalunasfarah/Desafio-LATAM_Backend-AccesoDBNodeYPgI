@@ -3,7 +3,9 @@ CREATE DATABASE likeme;
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     title VARCHAR(25) NOT NULL,
-    img VARCHAR (1000) UNIQUE,
+    imgsrc VARCHAR(1000),
     description VARCHAR(255) NOT NULL,
     likes INT);
-    
+
+-- ONE LINE CODE
+-- CREATE TABLE posts (id SERIAL PRIMARY KEY, title VARCHAR(25) NOT NULL, imgSrc VARCHAR(1000), description VARCHAR(255) NOT NULL, likes INT);

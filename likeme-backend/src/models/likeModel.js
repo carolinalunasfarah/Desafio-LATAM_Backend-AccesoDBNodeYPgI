@@ -10,10 +10,10 @@ export const getPosts = async () => {
     }
 };
 
-export const createPost = async (title, imgSrc, description, likes=0) => {
+export const createPost = async (title, imgsrc, description, likes=0) => {
     const SQLquery = {
-        text: "INSERT INTO posts (title, img, description, likes) VALUES ($1, $2, $3, $4) RETURNING *",
-        values: [title, imgSrc, description, likes],
+        text: "INSERT INTO posts (title, imgsrc, description, likes) VALUES ($1, $2, $3, $4) RETURNING *",
+        values: [title, imgsrc, description, likes],
     };
     try {
         const response = await pool.query(SQLquery);
