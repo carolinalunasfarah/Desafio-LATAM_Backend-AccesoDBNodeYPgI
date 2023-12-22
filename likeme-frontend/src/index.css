@@ -6,10 +6,16 @@ body {
   padding: 15px;
   background: #0d47a1;
   color: white;
+  border-radius: 2rem;
 }
 
 .card-body {
   background: #e1e2e1;
+  border-radius: 1rem;
+}
+
+.card-img-top {
+  border-radius: 1rem 1rem 0rem 0rem;
 }
 
 #creado {

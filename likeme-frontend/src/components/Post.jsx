@@ -4,8 +4,8 @@ function Post({
   erasePost,
 }) {
   return (
-    <div className="card col-12 col-sm-4 d-inline mx-0 px-3">
-      <div className="card-body p-0">
+    <div className="card col-12 col-sm-4 d-inline mx-0">
+      <div className="card-body p-0 mb-3">
         <img
           className="card-img-top "
           src={img}
