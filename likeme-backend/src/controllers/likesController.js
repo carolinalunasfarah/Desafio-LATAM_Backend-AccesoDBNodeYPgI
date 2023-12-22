@@ -25,8 +25,8 @@ export const getAllPosts = async (req, res) => {
 
 export const createPosts = async (req, res) => {
     try {
-        const { title, img, description } = req.body;
-        const newPost = await createPost(title, img, description);
+        const { title, url: imgSrc, description } = req.body;
+        const newPost = await createPost(title, imgSrc, description);
         res.status(201).json(newPost);
     } catch (error) {
         res.status(500).json({ error: error.message });
