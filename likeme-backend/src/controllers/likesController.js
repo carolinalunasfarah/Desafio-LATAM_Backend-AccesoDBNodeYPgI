@@ -14,6 +14,7 @@ export const getLikeMeConnection = async (req, res) => {
     }
 };
 
+// GET ALL posts
 export const getAllPosts = async (req, res) => {
     try {
         const posts = await getPosts();
@@ -23,6 +24,7 @@ export const getAllPosts = async (req, res) => {
     }
 };
 
+// CREATE post
 export const createPosts = async (req, res) => {
     try {
         const { title, imgsrc, description } = req.body;

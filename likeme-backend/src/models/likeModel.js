@@ -1,5 +1,6 @@
 import { pool } from "../../database/connectionDB.js";
 
+// GET posts
 export const getPosts = async () => {
     const SQLquery = { text: "SELECT * FROM posts" };
     try {
@@ -10,6 +11,7 @@ export const getPosts = async () => {
     }
 };
 
+// CREATE post
 export const createPost = async (title, imgsrc, description, likes=0) => {
     const SQLquery = {
         text: "INSERT INTO posts (title, imgsrc, description, likes) VALUES ($1, $2, $3, $4) RETURNING *",
