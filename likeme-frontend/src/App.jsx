@@ -6,9 +6,9 @@ import Post from "./components/Post";
 const urlBaseServer = "http://localhost:3000";
 
 function App() {
-  const [titulo, setTitulo] = useState("");
+  const [title, setTitle] = useState("");
   const [imgSrc, setImgSRC] = useState("");
-  const [descripcion, setDescripcion] = useState("");
+  const [description, setDescription] = useState("");
   const [posts, setPosts] = useState([]);
 
   const getPosts = async () => {
@@ -16,8 +16,8 @@ function App() {
     setPosts([...posts]);
   };
 
-  const agregarPost = async () => {
-    const post = { titulo, url: imgSrc, descripcion };
+  const addPost = async () => {
+    const post = { title, url: imgSrc, description };
     await axios.post(urlBaseServer + "/posts", post);
     getPosts();
   };
@@ -29,7 +29,7 @@ function App() {
   };
 
   // este método se utilizará en el siguiente desafío
-  const eliminarPost = async (id) => {
+  const erasePost = async (id) => {
     await axios.delete(urlBaseServer + `/posts/${id}`);
     getPosts();
   };
@@ -44,10 +44,10 @@ function App() {
       <div className="row m-auto px-5">
         <div className="col-12 col-sm-4">
           <Form
-            setTitulo={setTitulo}
+            setTitle={setTitle}
             setImgSRC={setImgSRC}
-            setDescripcion={setDescripcion}
-            agregarPost={agregarPost}
+            setDescription={setDescription}
+            addPost={addPost}
           />
         </div>
         <div className="col-12 col-sm-8 px-5 row posts align-items-start">
@@ -56,7 +56,7 @@ function App() {
               key={i}
               post={post}
               like={like}
-              eliminarPost={eliminarPost}
+              erasePost={erasePost}
             />
           ))}
         </div>

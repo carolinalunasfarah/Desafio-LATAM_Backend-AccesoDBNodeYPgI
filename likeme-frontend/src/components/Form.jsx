@@ -1,31 +1,31 @@
-function Form({ setTitulo, setImgSRC, setDescripcion, agregarPost }) {
+function Form({ setTitle, setImgSRC, setDescription, addPost }) {
   return (
     <div className="form">
       <div className="mb-2">
-        <h6>Agregar post</h6>
-        <label>Título</label>
+        <h6>Add post</h6>
+        <label>Title</label>
         <input
-          onChange={(event) => setTitulo(event.target.value)}
+          onChange={(event) => setTitle(event.target.value)}
           className="form-control"
         />
       </div>
       <div className="mb-2">
-        <label>URL de la imagen</label>
+        <label>Image URL</label>
         <input
           onChange={(event) => setImgSRC(event.target.value)}
           className="form-control"
         />
       </div>
       <div className="mb-3">
-        <label>Descripción</label> <br />
+        <label>Description</label> <br />
         <textarea
-          onChange={(event) => setDescripcion(event.target.value)}
+          onChange={(event) => setDescription(event.target.value)}
           className="form-control"
         ></textarea>
       </div>
       <div className="d-flex">
-        <button onClick={agregarPost} className="btn btn-light m-auto">
-          Agregar
+        <button onClick={addPost} className="btn btn-light m-auto">
+          Add
         </button>
       </div>
     </div>
