@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { createPosts, getAllPosts } from "../src/controllers/likesController";
+import {
+    createPosts,
+    getAllPosts,
+} from "../src/controllers/likesController.js";
 
 const router = Router();
 
