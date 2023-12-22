@@ -1,4 +1,4 @@
-import { getPosts, createPost } from "../models/likeModel.js";
+import { getPosts, createPost, getPostsById } from "../models/likeModel.js";
 
 import { fileURLToPath } from "url";
 import { dirname } from "path";
@@ -19,6 +19,17 @@ export const getAllPosts = async (req, res) => {
     try {
         const posts = await getPosts();
         res.status(200).json(posts);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+// GET post BY ID
+export const getPostById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const post = await getPostsById(id);
+        res.status(200).json(post);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

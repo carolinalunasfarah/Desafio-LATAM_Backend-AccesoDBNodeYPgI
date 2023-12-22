@@ -11,8 +11,25 @@ export const getPosts = async () => {
     }
 };
 
+// GET post BY ID
+export const getPostsById = async (id) => {
+    const SQLquery = {
+        text: "SELECT * FROM posts WHERE id = $1",
+        values: [id],
+    };
+    try {
+        const response = await pool.query(SQLquery);
+        if (response.rowCount === 0) {
+            throw new Error("Post not found");
+        }
+        return response.rows;
+    } catch (error) {
+        throw new Error("Error getting a post by this id: " + error.message);
+    }
+};
+
 // CREATE post
-export const createPost = async (title, imgsrc, description, likes=0) => {
+export const createPost = async (title, imgsrc, description, likes = 0) => {
     const SQLquery = {
         text: "INSERT INTO posts (title, imgsrc, description, likes) VALUES ($1, $2, $3, $4) RETURNING *",
         values: [title, imgsrc, description, likes],

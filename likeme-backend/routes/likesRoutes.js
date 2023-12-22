@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
     createPosts,
     getAllPosts,
+    getPostById,
     getLikeMeConnection,
     notFound,
 } from "../src/controllers/likesController.js";
@@ -13,6 +14,9 @@ router.get("/", getLikeMeConnection);
 
 // GET ALL REGISTERS IN TABLE posts
 router.get("/posts", getAllPosts);
+
+// GET post BY ID
+router.get("/posts/:id", getPostById);
 
 // POST A NEW POST
 router.post("/posts", createPosts);
