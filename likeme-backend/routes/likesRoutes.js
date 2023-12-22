@@ -3,6 +3,7 @@ import {
     createPosts,
     getAllPosts,
     getLikeMeConnection,
+    notFound,
 } from "../src/controllers/likesController.js";
 
 const router = Router();
@@ -17,6 +18,6 @@ router.get("/posts", getAllPosts);
 router.post("/posts", createPosts);
 
 // NOT FOUND
-router.all("*");
+router.all("*", notFound);
 
 export default router;

@@ -34,3 +34,8 @@ export const createPosts = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+// NOT FOUND PAGE
+export const notFound = (req, res) => {
+    res.status(404).json({ error: "Page not found" });
+};
