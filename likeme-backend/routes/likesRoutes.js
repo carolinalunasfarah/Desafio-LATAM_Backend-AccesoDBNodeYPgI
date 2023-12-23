@@ -4,6 +4,7 @@ import {
     getAllPosts,
     getPostById,
     likedPosts,
+    erasePosts,
     getLikeMeConnection,
     notFound,
 } from "../src/controllers/likesController.js";
@@ -19,11 +20,14 @@ router.get("/posts", getAllPosts);
 // GET post BY ID
 router.get("/posts/:id", getPostById);
 
+// POST A NEW post
+router.post("/posts", createPosts);
+
 // PUT post BY ID
 router.put("/posts/like/:id", likedPosts);
 
-// POST A NEW POST
-router.post("/posts", createPosts);
+// DELETE post
+router.delete("/posts/:id", erasePosts);
 
 // NOT FOUND
 router.all("*", notFound);

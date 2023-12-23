@@ -1,8 +1,9 @@
 import {
     getPosts,
-    createPost,
     getPostsById,
+    createPost,
     likedPost,
+    erasePost,
 } from "../models/likeModel.js";
 
 import { fileURLToPath } from "url";
@@ -58,6 +59,17 @@ export const likedPosts = async (req, res) => {
         const { likes } = req.body;
         const likePost = await likedPost(id, likes);
         res.status(200).json(likePost);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+// DELETE post
+export const erasePosts = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await erasePost(id);
+        res.status(200).json(posts);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
