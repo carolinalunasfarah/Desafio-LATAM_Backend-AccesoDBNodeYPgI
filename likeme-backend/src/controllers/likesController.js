@@ -1,4 +1,9 @@
-import { getPosts, createPost, getPostsById } from "../models/likeModel.js";
+import {
+    getPosts,
+    createPost,
+    getPostsById,
+    likedPost,
+} from "../models/likeModel.js";
 
 import { fileURLToPath } from "url";
 import { dirname } from "path";
@@ -41,6 +46,18 @@ export const createPosts = async (req, res) => {
         const { title, imgsrc, description } = req.body;
         const newPost = await createPost(title, imgsrc, description);
         res.status(201).json(newPost);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+// UPDATE post
+export const likedPosts = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { likes } = req.body;
+        const likePost = await likedPost(id, likes);
+        res.status(200).json(likePost);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
