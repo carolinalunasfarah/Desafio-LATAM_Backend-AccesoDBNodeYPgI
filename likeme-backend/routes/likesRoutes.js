@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
-    createPosts,
     getAllPosts,
     getPostById,
+    createPosts,
     likedPosts,
     erasePosts,
     getLikeMeConnection,

@@ -68,8 +68,8 @@ export const likedPosts = async (req, res) => {
 export const erasePosts = async (req, res) => {
     try {
         const { id } = req.params;
-        await erasePost(id);
-        res.status(200).json(posts);
+        const erasedPost = await erasePost(id);
+        res.status(200).json(erasedPost);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
